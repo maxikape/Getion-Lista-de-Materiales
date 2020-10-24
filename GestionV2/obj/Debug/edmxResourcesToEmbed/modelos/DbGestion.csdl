@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mauriModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Insumos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod_articulo" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <Property Name="valor_unitario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Materiales" Relationship="Self.FK_Materiales_Insumos" FromRole="Insumos" ToRole="Materiales" />
+  </EntityType>
+  <EntityType Name="Materiales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pedido_id" Type="Int32" Nullable="false" />
+    <Property Name="insumo_id" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="pendiente" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Insumos" Relationship="Self.FK_Materiales_Insumos" FromRole="Materiales" ToRole="Insumos" />
+    <NavigationProperty Name="Pedidos" Relationship="Self.FK_Materiales_Pedidos1" FromRole="Materiales" ToRole="Pedidos" />
+  </EntityType>
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tipo_pedido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_pedido" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Materiales" Relationship="Self.FK_Materiales_Pedidos1" FromRole="Pedidos" ToRole="Materiales" />
+  </EntityType>
+  <Association Name="FK_Materiales_Insumos">
+    <End Role="Insumos" Type="Self.Insumos" Multiplicity="1" />
+    <End Role="Materiales" Type="Self.Materiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materiales">
+        <PropertyRef Name="insumo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materiales_Pedidos1">
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
+    <End Role="Materiales" Type="Self.Materiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materiales">
+        <PropertyRef Name="pedido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mauriEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Insumos" EntityType="Self.Insumos" />
+    <EntitySet Name="Materiales" EntityType="Self.Materiales" />
+    <EntitySet Name="Pedidos" EntityType="Self.Pedidos" />
+    <AssociationSet Name="FK_Materiales_Insumos" Association="Self.FK_Materiales_Insumos">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Materiales" EntitySet="Materiales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materiales_Pedidos1" Association="Self.FK_Materiales_Pedidos1">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Materiales" EntitySet="Materiales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mauriModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Insumos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_articulo" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="stock" Type="int" Nullable="false" />
+    <Property Name="valor_unitario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materiales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pedido_id" Type="int" Nullable="false" />
+    <Property Name="insumo_id" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="pendiente" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cliente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipo_pedido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_pedido" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Materiales_Insumos">
+    <End Role="Insumos" Type="Self.Insumos" Multiplicity="1" />
+    <End Role="Materiales" Type="Self.Materiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materiales">
+        <PropertyRef Name="insumo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materiales_Pedidos1">
+    <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1" />
+    <End Role="Materiales" Type="Self.Materiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Materiales">
+        <PropertyRef Name="pedido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mauriModelStoreContainer">
+    <EntitySet Name="Insumos" EntityType="Self.Insumos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materiales" EntityType="Self.Materiales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Materiales_Insumos" Association="Self.FK_Materiales_Insumos">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Materiales" EntitySet="Materiales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materiales_Pedidos1" Association="Self.FK_Materiales_Pedidos1">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Materiales" EntitySet="Materiales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

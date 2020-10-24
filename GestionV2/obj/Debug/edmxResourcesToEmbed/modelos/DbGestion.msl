@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mauriModelStoreContainer" CdmEntityContainer="mauriEntities">
+    <EntitySetMapping Name="Insumos">
+      <EntityTypeMapping TypeName="mauriModel.Insumos">
+        <MappingFragment StoreEntitySet="Insumos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cod_articulo" ColumnName="cod_articulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="valor_unitario" ColumnName="valor_unitario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materiales">
+      <EntityTypeMapping TypeName="mauriModel.Materiales">
+        <MappingFragment StoreEntitySet="Materiales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pedido_id" ColumnName="pedido_id" />
+          <ScalarProperty Name="insumo_id" ColumnName="insumo_id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="pendiente" ColumnName="pendiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="mauriModel.Pedidos">
+        <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="tipo_pedido" ColumnName="tipo_pedido" />
+          <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

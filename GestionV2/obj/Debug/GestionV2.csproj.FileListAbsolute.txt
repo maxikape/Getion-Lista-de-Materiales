@@ -1,0 +1,15 @@
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\GestionV2.exe.config
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\GestionV2.exe
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\GestionV2.pdb
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\EntityFramework.dll
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\EntityFramework.xml
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.csprojAssemblyReference.cache
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.Form1.resources
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.Properties.Resources.resources
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.csproj.GenerateResource.cache
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.csproj.CoreCompileInputs.cache
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.csproj.CopyComplete
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.exe
+C:\Users\MAXx\source\repos\GestionV2\GestionV2\obj\Debug\GestionV2.pdb
