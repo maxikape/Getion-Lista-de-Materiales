@@ -61,12 +61,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="materiales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="materiales.Designer.cs">
-      <DependentUpon>materiales.cs</DependentUpon>
-    </Compile>
     <Compile Include="mauriDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

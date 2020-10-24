@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GestionV2
-{
+{//.
     public partial class Form1 : Form
     {
         public Form1()
@@ -33,8 +33,7 @@ namespace GestionV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form formu = new materiales();
-            formu.Show();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
